@@ -26,6 +26,4 @@ router.get('/', (ctx) => {
 router.get(url.hots, hotsController.getHots)
 router.get(url.hotsWithParams, hotsController.getHotsByParams)
 
-module.exports = () => {
-  return router.routes()
-}
+module.exports = () => router.routes()
