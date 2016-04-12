@@ -14,6 +14,8 @@
   "dependencies": {
     "koa": "^2.0.0",
     "koa-bodyparser": "^3.0.0",
+    "koa-cache-lite": "^3.2.4",
+    "koa-convert": "^1.2.0",
     "koa-cors": "0.0.16",
     "koa-error": "^1.1.3",
     "koa-router": "^7.0.1",
