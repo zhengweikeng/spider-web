@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "clean": "rm -rf build",
     "babel": "./node_modules/.bin/babel src -w -d build/ --source-maps",
-    "server": "node build/app.js"
+    "server": "node build/app.js",
+    "deploy": "pm2 deploy ecosystem.json production setup && pm2 deploy ecosystem.json production"
   },
   "author": "Seed",
   "license": "ISC",
