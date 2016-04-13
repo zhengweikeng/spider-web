@@ -1,0 +1,49 @@
+{
+  /**
+   * Application configuration section
+   * http://pm2.keymetrics.io/docs/usage/application-declaration/
+   */
+  apps : [
+
+    // First application
+    {
+      name      : "spider",
+      script    : "build/app.js",
+      env: {
+        port: 3307
+      },
+      env_production : {
+        NODE_ENV: "production"
+      },
+      env_development : {
+        NODE_ENV: "development"
+      }
+    }
+  ],
+
+  /**
+   * Deployment section
+   * http://pm2.keymetrics.io/docs/usage/deployment/
+   */
+  deploy : {
+    production : {
+      user : "jsb1111",
+      host : "192.168.19.172",
+      ref  : "origin/master",
+      repo : "https://github.com/zhengweikeng/spider.git",
+      path : "/home/jsb1111/proj",
+      "post-deploy" : "npm install && pm2 start ecosystem.json --env production"
+    },
+    dev : {
+      user : "jsb1111",
+      host : "192.168.19.174",
+      ref  : "origin/master",
+      repo : "https://github.com/zhengweikeng/spider.git",
+      path : "/home/jsb1111/proj",
+      "post-deploy" : "source ~/.zshrc && npm install && ./node_modules/.bin/babel src -d build/ && pm2 start ecosystem.json --env development",
+      env  : {
+        NODE_ENV: "development"
+      }
+    }
+  }
+}
